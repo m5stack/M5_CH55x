@@ -142,6 +142,9 @@ void mInitSTDIO( )
     UINT32 x;
     UINT8 x2; 
 
+    // Configure TXD1/CAP1 pins, which are used for controlling EN/G0 pins, to open-drain with no pull-up resistor.
+    P1_DIR_PU = (P1_DIR_PU & ~(bTXD1 | bCAP1));
+
     SM0 = 0;
     SM1 = 1;
     SM2 = 0;                                                                   //串口0使用模式1
